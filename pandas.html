@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 21: MultiIndex Objects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        
+        .python-keyword {
+            color: #ff7979;
+        }
+        
+        .python-string {
+            color: #00b894;
+        }
+        
+        .python-comment {
+            color: #74b9ff;
+            font-style: italic;
+        }
+        
+        .output-block {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', Courier, monospace;
+            color: #495057;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.3s;
+        }
+        
+        .multiindex-table th {
+            background: linear-gradient(135deg, #ff7979 0%, #e17055 100%);
+        }
+        
+        .covid-table th {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+        }
+        
+        .tips-table th {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .note {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ffeaa7;
+            margin: 15px 0;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .toc {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #b8daff;
+        }
+        
+        .toc h3 {
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            padding: 5px 0;
+        }
+        
+        .toc a {
+            color: #0056b3;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .toc a:hover {
+            background-color: #cce7ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Session 21: MultiIndex Objects</h1>
+        
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#why-multiindex">Why MultiIndex?</a></li>
+                <li><a href="#creating-multiindex">Creating MultiIndex Objects</a></li>
+                <li><a href="#series-multiindex">Series with MultiIndex</a></li>
+                <li><a href="#dataframe-multiindex">DataFrame with MultiIndex</a></li>
+                <li><a href="#operations">Operations on MultiIndex</a></li>
+                <li><a href="#melt-operation">Melt Operation</a></li>
+                <li><a href="#pivot-tables">Pivot Tables</a></li>
+            </ul>
+        </div>
+
+        <div id="introduction" class="section">
+            <h2>Introduction</h2>
+            <div class="code-block">
+<span class="python-keyword">import</span> numpy <span class="python-keyword">as</span> np
+<span class="python-keyword">import</span> pandas <span class="python-keyword">as</span> pd
+            </div>
+        </div>
+
+        <div id="why-multiindex" class="section">
+            <h2>But why?</h2>
+            <p>And what exactly is index?</p>
+            
+            <h3>The problem?</h3>
+            <div class="code-block">
+a[<span class="python-string">'cse'</span>]
+            </div>
+        </div>
+
+        <div id="creating-multiindex" class="section">
+            <h2>How to create MultiIndex object</h2>
+            
+            <h3>1. pd.MultiIndex.from_tuples()</h3>
+            <div class="code-block">
+index_val = [(<span class="python-string">'cse'</span>,<span class="python-string">2019</span>),(<span class="python-string">'cse'</span>,<span class="python-string">2020</span>),(<span class="python-string">'cse'</span>,<span class="python-string">2021</span>),(<span class="python-string">'cse'</span>,<span class="python-string">2022</span>),(<span class="python-string">'ece'</span>,<span class="python-string">2019</span>),(<span class="python-string">'ece'</span>,<span class="python-string">2020</span>),(<span class="python-string">'ece'</span>,<span class="python-string">2021</span>),(<span class="python-string">'ece'</span>,<span class="python-string">2022</span>)]
+multiindex = pd.MultiIndex.from_tuples(index_val)
+multiindex.levels[<span class="python-string">1</span>]
+            </div>
+            
+            <h3>2. pd.MultiIndex.from_product()</h3>
+            <div class="code-block">
+pd.MultiIndex.from_product([[<span class="python-string">'cse'</span>,<span class="python-string">'ece'</span>],[<span class="python-string">2019</span>,<span class="python-string">2020</span>,<span class="python-string">2021</span>,<span class="python-string">2022</span>]])
+            </div>
+        </div>
+
+        <div id="series-multiindex" class="section">
+            <h2>Creating a series with MultiIndex object</h2>
+            <div class="code-block">
+s = pd.Series([<span class="python-string">1</span>,<span class="python-string">2</span>,<span class="python-string">3</span>,<span class="python-string">4</span>,<span class="python-string">5</span>,<span class="python-string">6</span>,<span class="python-string">7</span>,<span class="python-string">8</span>],index=multiindex)
+s
+            </div>
+            
+            <h3>How to fetch items from such a series</h3>
+            <div class="code-block">
+s[<span class="python-string">'cse'</span>]
+            </div>
+            
+            <div class="output-block">
+2019    1
+2020    2
+2021    3
+2022    4
+dtype: int64
+            </div>
+            
+            <h3>Table representation</h3>
+            <table class="multiindex-table">
+                <thead>
+                    <tr>
+                        <th>Branch</th>
+                        <th>2019</th>
+                        <th>2020</th>
+                        <th>2021</th>
+                        <th>2022</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cse</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>ece</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Stack operation</h3>
+            <div class="code-block">
+temp.stack()
+            </div>
+        </div>
+
+        <div id="dataframe-multiindex" class="section">
+            <h2>MultiIndex DataFrame</h2>
+            
+            <table class="multiindex-table">
+                <thead>
+                    <tr>
+                        <th>Branch</th>
+                        <th>Year</th>
+                        <th>avg_package</th>
+                        <th>students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cse</td>
+                        <td>2019</td>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>cse</td>
+                        <td>2020</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>cse</td>
+                        <td>2021</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>cse</td>
+                        <td>2022</td>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>ece</td>
+                        <td>2019</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>ece</td>
+                        <td>2020</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>ece</td>
+                        <td>2021</td>
+                        <td>13</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>ece</td>
+                        <td>2022</td>
+                        <td>15</td>
+                        <td>16</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Output for students column:</h3>
+            <div class="output-block">
+cse  2019     2
+     2020     4
+     2021     6
+     2022     8
+ece  2019    10
+     2020    12
+     2021    14
+     2022    16
+Name: students, dtype: int64
+            </div>
+            
+            <h3>MultiIndex DataFrame from columns perspective</h3>
+            <div class="code-block">
+branch_df2 = pd.DataFrame(
+    [
+        [<span class="python-string">1</span>,<span class="python-string">2</span>,<span class="python-string">0</span>,<span class="python-string">0</span>],
+        [<span class="python-string">3</span>,<span class="python-string">4</span>,<span class="python-string">0</span>,<span class="python-string">0</span>],
+        [<span class="python-string">5</span>,<span class="python-string">6</span>,<span class="python-string">0</span>,<span class="python-string">0</span>],
+        [<span class="python-string">7</span>,<span class="python-string">8</span>,<span class="python-string">0</span>,<span class="python-string">0</span>],
+    ],
+    index = [<span class="python-string">2019</span>,<span class="python-string">2020</span>,<span class="python-string">2021</span>,<span class="python-string">2022</span>],
+    columns = pd.MultiIndex.from_product([[<span class="python-string">'delhi'</span>,<span class="python-string">'mumbai'</span>],[<span class="python-string">'avg_package'</span>,<span class="python-string">'students'</span>]])
+)
+branch_df2
+            </div>
+            
+            <table class="multiindex-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Year</th>
+                        <th colspan="2">delhi</th>
+                        <th colspan="2">mumbai</th>
+                    </tr>
+                    <tr>
+                        <th>avg_package</th>
+                        <th>students</th>
+                        <th>avg_package</th>
+                        <th>students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2019</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="operations" class="section">
+            <h2>Operations on MultiIndex DataFrame</h2>
+            
+            <h3>Extracting rows (single)</h3>
+            <div class="code-block">
+branch_df3.loc[(<span class="python-string">'cse'</span>,<span class="python-string">2022</span>)]
+            </div>
+            
+            <h3>Extracting columns</h3>
+            <div class="code-block">
+branch_df3[<span class="python-string">'delhi'</span>][<span class="python-string">'students'</span>]
+            </div>
+            
+            <div class="code-block">
+branch_df3.iloc[:,<span class="python-string">1</span>:<span class="python-string">3</span>]
+            </div>
+            
+            <h3>Extracting both rows and columns</h3>
+            <div class="code-block">
+branch_df3.iloc[[<span class="python-string">0</span>,<span class="python-string">4</span>],[<span class="python-string">1</span>,<span class="python-string">2</span>]]
+            </div>
+            
+            <h3>Sorting operations</h3>
+            <div class="highlight">
+                <p><strong>Note:</strong> After sorting by index, the DataFrame structure changes with different branch ordering.</p>
+            </div>
+            
+            <h3>Transpose operation</h3>
+            <p>The transpose operation swaps rows and columns, creating a new MultiIndex structure.</p>
+            
+            <h3>Swapping levels</h3>
+            <p>Level swapping changes the hierarchy of the MultiIndex structure.</p>
+        </div>
+
+        <div id="melt-operation" class="section">
+            <h2>Data Format Concepts</h2>
+            
+            <div class="highlight">
+                <p><strong>Wide format</strong> is where we have a single row for every data point with multiple columns to hold the values of various attributes.</p>
+            </div>
+            
+            <h3>Melt Operation</h3>
+            
+            <h4>Simple melt example</h4>
+            <div class="code-block">
+pd.DataFrame({<span class="python-string">'cse'</span>:[<span class="python-string">120</span>],<span class="python-string">'ece'</span>:[<span class="python-string">100</span>],<span class="python-string">'mech'</span>:[<span class="python-string">50</span>]}).melt(var_name=<span class="python-string">'branch'</span>,value_name=<span class="python-string">'num_students'</span>)
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>branch</th>
+                        <th>num_students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>cse</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ece</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>mech</td>
+                        <td>50</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4>Melt - branch with year</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>branch</th>
+                        <th>year</th>
+                        <th>students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>cse</td>
+                        <td>2020</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ece</td>
+                        <td>2020</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>mech</td>
+                        <td>2020</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>cse</td>
+                        <td>2021</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ece</td>
+                        <td>2021</td>
+                        <td>130</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>mech</td>
+                        <td>2021</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>cse</td>
+                        <td>2022</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>ece</td>
+                        <td>2022</td>
+                        <td>140</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>mech</td>
+                        <td>2022</td>
+                        <td>70</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Real world example with COVID data</h3>
+            <div class="code-block">
+death = pd.read_csv(<span class="python-string">'/content/time_series_covid19_deaths_global.csv'</span>)
+confirm = pd.read_csv(<span class="python-string">'/content/time_series_covid19_confirmed_global.csv'</span>)
+            </div>
+            
+            <h4>Merged COVID data sample</h4>
+            <table class="covid-table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Country/Region</th>
+                        <th>date</th>
+                        <th>num_cases</th>
+                        <th>num_deaths</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>Afghanistan</td>
+                        <td>1/22/20</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Albania</td>
+                        <td>1/22/20</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Algeria</td>
+                        <td>1/22/20</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Andorra</td>
+                        <td>1/22/20</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Angola</td>
+                        <td>1/22/20</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="note">
+                <strong>Total:</strong> 311253 rows × 4 columns
+            </div>
+        </div>
+
+        <div id="pivot-tables" class="section">
+            <h2>Pivot Tables</h2>
+            
+            <div class="code-block">
+<span class="python-keyword">import</span> numpy <span class="python-keyword">as</span> np
+<span class="python-keyword">import</span> pandas <span class="python-keyword">as</span> pd
+<span class="python-keyword">import</span> seaborn <span class="python-keyword">as</span> sns
+            </div>
+            
+            <h3>Tips dataset sample</h3>
+            <table class="tips-table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>total_bill</th>
+                        <th>tip</th>
+                        <th>sex</th>
+                        <th>smoker</th>
+                        <th>day</th>
+                        <th>time</th>
+                        <th>size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>16.99</td>
+                        <td>1.01</td>
+                        <td>Female</td>
+                        <td>No</td>
+                        <td>Sun</td>
+                        <td>Dinner</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>10.34</td>
+                        <td>1.66</td>
+                        <td>Male</td>
+                        <td>No</td>
+                        <td>Sun</td>
+                        <td>Dinner</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>21.01</td>
+                        <td>3.50</td>
+                        <td>Male</td>
+                        <td>No</td>
+                        <td>Sun</td>
+                        <td>Dinner</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>23.68</td>
+                        <td>3.31</td>
+                        <td>Male</td>
+                        <td>No</td>
+                        <td>Sun</td>
+                        <td>Dinner</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>24.59</td>
+                        <td>3.61</td>
+                        <td>Female</td>
+                        <td>No</td>
+                        <td>Sun</td>
+                        <td>Dinner</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Basic pivot table - mean total_bill by sex</h3>
+            <table class="tips-table">
+                <thead>
+                    <tr>
+                        <th>sex</th>
+                        <th>total_bill</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Male</td>
+                        <td>20.744076</td>
+                    </tr>
+                    <tr>
+                        <td>Female</td>
+                        <td>18.056897</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Pivot table with columns - total_bill by sex and smoker</h3>
+            <table class="tips-table">
+                <thead>
+                    <tr>
+                        <th>sex</th>
+                        <th>smoker=Yes</th>
+                        <th>smoker=No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Male</td>
+                        <td>22.284500</td>
+                        <td>19.791237</td>
+                    </tr>
+                    <tr>
+                        <td>Female</td>
+                        <td>17.977879</td>
+                        <td>18.105185</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Margins in pivot tables</h3>
+            <table class="tips-table">
+                <thead>
+                    <tr>
+                        <th>sex</th>
+                        <th>smoker=Yes</th>
+                        <th>smoker=No</th>
+                        <th>All</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Male</td>
+                        <td>1337.07</td>
+                        <td>1919.75</td>
+                        <td>3256.82</td>
+                    </tr>
+                    <tr>
+                        <td>Female</td>
+                        <td>593.27</td>
+                        <td>977.68</td>
+                        <td>1570.95</td>
+                    </tr>
+                    <tr>
+                        <td>All</td>
+                        <td>1930.34</td>
+                        <td>2897.43</td>
+                        <td>4827.77</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Real-world expense data example</h3>
+            <div class="code-block">
+df.pivot_table(index=<span class="python-string">'month'</span>,columns=<span class="python-string">'Category'</span>,values=<span class="python-string">'INR'</span>,aggfunc=<span class="python-string">'sum'</span>,fill_value=<span class="python-string">0</span>).plot()
+            </div>
+            
+            <div class="output-block">
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f89760dbe50&gt;
+            </div>
+        </div>
+
+        <div class="note">
+            <p><strong>Note:</strong> This tutorial covers comprehensive MultiIndex operations in pandas, including creation, manipulation, melting, and pivot table operations. Each section provides practical examples with real-world datasets.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feature Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdfdfd;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #2c3e50;
+      text-align: center;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 10px;
+    }
+    h2, h3 {
+      color: #34495e;
+      margin-top: 30px;
+    }
+    .box {
+      background: #f8f9fa;
+      border-left: 4px solid #3498db;
+      padding: 15px;
+      margin: 40px 0;
+      border-radius: 5px;
+    }
+    .points, .disadvantages, .advantages {
+      background: #f1f2f6;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    .points h4, .advantages h4, .disadvantages h4 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>FEATURE SELECTION</h1>
+
+    <div class="box">
+      <h2>What is Feature Selection?</h2>
+      <p>Feature selection is a process in machine learning and statistics where you identify and select a subset of relevant features (variables, predictors) for use in model construction. The goal is to improve the performance of the model by reducing overfitting, improving accuracy, and decreasing computational cost.</p>
+    </div>
+
+    <div class="box">
+      <h2>Types of Feature Selection</h2>
+      <ul>
+        <li>Filter Based Feature Selection</li>
+        <li>Wrapper Methods Feature Selection</li>
+        <li>Embedded Methods Feature Selection</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Filter-Based Feature Selection</h2>
+      <p>Filter-based feature selection techniques are methods that use statistical measures to score each feature independently, and then select a subset of features based on these scores. These methods are called "filter" methods because they essentially filter out the features that do not meet some criterion.</p>
+
+      <ul>
+        <li>Duplicate Features</li>
+        <li>Variance Threshold</li>
+      </ul>
+
+      <div class="points">
+        <h4>Points to Consider</h4>
+        <ul>
+          <li><strong>Ignores Target Variable:</strong> Variance Threshold is a univariate method that doesn't consider the relationship between each feature and the target variable.</li>
+          <li><strong>Ignores Feature Interactions:</strong> Variance Threshold doesn't account for interactions between features.</li>
+          <li><strong>Sensitive to Data Scaling:</strong> Features should be standardized before applying variance threshold.</li>
+          <li><strong>Arbitrary Threshold Value:</strong> Threshold selection can be subjective and dataset dependent.</li>
+        </ul>
+      </div>
+
+      <h3>Correlation</h3>
+      <div class="disadvantages">
+        <h4>Disadvantages</h4>
+        <ul>
+          <li><strong>Linearity Assumption:</strong> Correlation measures the linear relationship between two variables. It does not capture non-linear relationships well. If a relationship is nonlinear, the correlation coefficient can be misleading. </li>
+          <li><strong>Doesn't Capture Complex Relationships:</strong> Correlation only measures the relationship between two variables at a time. It may not capture complex relationships involving more than two variables.</li>
+          <li>Threshold Determination:</strong> Just like variance threshold, defining what level of correlation is considered "high" can be subjective and may vary depending on the specific problem or dataset.</li>
+          <li>Sensitive to Outliers:</strong> Correlation is sensitive to outliers. A few extreme values can significantly skew the correlation coefficient. </li>
+        </ul>
+      </div>
+
+      <h3>ANOVA</h3>
+      <div class="disadvantages">
+        <h4>Disadvantages</h4>
+        <ul>
+        <li><strong>Assumption of Normality:</strong> ANOVA assumes that the data for each group follow a normal distribution. This may not hold true for skewed distributions.</li>
+        <li><strong>Homogeneity of Variance:</strong> It assumes equal variances (homoscedasticity) across groups. Violations can lead to incorrect results.</li>
+        <li><strong>Independence of Observations:</strong> Observations should be independent. This fails with related data (e.g., time series or nested data).</li>
+        <li><strong>Effect of Outliers:</strong> ANOVA is sensitive to outliers. A single outlier can skew the F-statistic.</li>
+        <li><strong>No Feature Interactions:</strong> ANOVA does not consider feature interactions.</li>
+        </ul>
+      </div>
+
+      <h3>Chi-Square</h3>
+      <div class="disadvantages">
+        <h4>Disadvantages</h4>
+        <ul>
+          <li><strong>Categorical Data Only:</strong> Not suitable for continuous data unless discretized, which may lose information.</li>
+          <li><strong>Independence of Observations:</strong> Assumes independent data points, which may not be true in many datasets.</li>
+          <li><strong>Sufficient Sample Size:</strong> Requires large sample sizes. Small frequencies (less than 5) reduce reliability.</li>
+          <li><strong>No Feature Interactions:</strong> Does not detect combinations of features that are jointly important.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="advantages">
+      <h4>Advantages</h4>
+      <ul>
+        <li><strong>Simplicity:</strong> Easy to understand and implement using simple statistical scores.</li>
+        <li><strong>Speed:</strong> Computationally fast as it evaluates features independently.</li>
+        <li><strong>Scalability:</strong> Works well with high-dimensional datasets.</li>
+        <li><strong>Good for Preprocessing:</strong> Can be used to reduce the feature space before applying complex methods.</li>
+      </ul>
+    </div>
+
+    <div class="disadvantages">
+      <h4>Disadvantages</h4>
+      <ul>
+        <li><strong>No Feature Interaction:</strong> Cannot capture dependencies or interactions between features.</li>
+        <li><strong>Model-Agnostic:</strong> Selected features might not be optimal for the intended ML model.</li>
+        <li><strong>Statistical Limitation:</strong> Linear methods like correlation can miss nonlinear relationships.</li>
+        <li><strong>Threshold Subjectivity:</strong> Choosing cutoffs for variance or correlation can be arbitrary.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

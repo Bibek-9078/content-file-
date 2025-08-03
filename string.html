@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DAY-03 STRING - Python Strings Fundamentals</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    padding: 30px;
+    line-height: 1.6;
+    color: #2c3e50;
+  }
+  h1, h2, h3 {
+    color: #2c3e50;
+  }
+  pre {
+    background: #f4f4f4;
+    border-left: 4px solid #007ACC;
+    padding: 10px;
+    overflow-x: auto;
+    font-family: "Fira Mono", Consolas, monospace;
+    margin: 0;
+    font-size: 1em;
+    white-space: pre-wrap;
+  }
+  samp {
+    display: block;
+    background: #e6ffe6;
+    color: #124812;
+    border-left: 4px solid #38B000;
+    padding: 10px;
+    margin: 0;
+    font-family: "Fira Mono", Consolas, monospace;
+    white-space: pre-wrap;
+    font-size: 1em;
+  }
+  code {
+    background: #eef;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  section {
+    margin-bottom: 50px;
+  }
+  ul {
+    margin-left: 1.5em;
+  }
+  /* Side-by-side code/output container */
+  .code-output {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .code-box, .output-box {
+    flex: 1 1 350px;
+    min-width: 320px;
+    box-sizing: border-box;
+  }
+  .code-box pre, .output-box samp {
+    margin-bottom: 0;
+  }
+  .output-box samp {
+    border-left-color: #38b000;
+    background: #e6ffe6;
+    color: #124812;
+  }
+  @media (max-width: 900px) {
+    .code-output {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>DAY-03: Python Strings Fundamentals</h1>
+
+<section>
+  <h2>1. Creating Strings</h2>
+  <ul>
+    <li>String can be created by enclosing characters inside single (' '), double (" "), or triple quotes (<code>''' '''</code> or <code>""" """</code>).</li>
+    <li>Triple quotes are used to represent multiline strings.</li>
+  </ul>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code># Single and double quotes
+c = 'Hello'
+print(c)
+c = "Hello"
+print(c)
+
+# Multiline string using triple quotes
+c = '''Hello
+World'''
+print(c)
+
+s = str('hello')
+print(s)</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+Hello
+Hello
+Hello
+World
+hello
+      </samp>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>2. Accessing Substrings (Indexing and Slicing)</h2>
+  <ul>
+    <li>Indexing starts at 0 (positive index, left to right).</li>
+    <li>Negative indexing counts from right to left, starting at -1.</li>
+    <li>Trying to access index outside the string bounds raises an error.</li>
+    <li>Slicing allows extracting substring ranges: <code>string[start:end]</code></li>
+  </ul>
+  
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>c = "hello"
+print(c[0])          # Positive Indexing
+print(c[-1])         # Negative Indexing
+
+c = "Hello World"
+print(c)
+print(c[0:5])        # First 5 chars
+print(c[2:])         # From index 2 to end
+print(c[:4])         # From start to index 4
+print(c[:])          # Full string
+print(c[0:8:3])      # Slicing with step
+print(c[0:6:-1])     # No output (wrong slicing)</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+h
+o
+Hello World
+Hello
+llo World
+Hell
+Hello World
+HlW
+      </samp>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>3. Editing and Deleting Strings</h2>
+  <ul>
+    <li>Strings are immutable in Python.</li>
+    <li>You cannot edit parts of a string directly;</li>
+    <li>Strings can only be reassigned.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>4. Operations on Strings</h2>
+
+  <h3>Arithmetic Operations</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>c = "Hello"
+print(c[-5:-1:2])
+print(c[::-1])
+print(c[-1:-5:-1])
+print("Hello" + "-" + "world")
+print("*" * 5)</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+el
+olleH
+dlro
+Hello-world
+*****
+      </samp>
+    </div>
+  </div>
+
+  <h3>Relational Operations</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>print("hello" == "world")
+print("Hello" == "World")
+print("Hello" != "World")</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+False
+False
+True
+      </samp>
+    </div>
+  </div>
+
+  <h3>Logical Operations</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>print("Mumbai" > "Pune")
+print("Goa" < "Kolkata")
+print("kol" < "Kol")
+print("hello" and "world")
+print(" " and "Hello")
+print(" " or "world")
+print("hello" or "world")
+print(not "hello")
+print(not "")</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+False
+True
+False
+world
+Hello
+world
+hello
+False
+True
+      </samp>
+    </div>
+  </div>
+
+  <h3>Membership Operation</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>print("D" in "Delhi")</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+True
+      </samp>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>5. Loops on Strings</h2>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>for i in 'hello':
+    print(i)
+for i in 'delhi':
+    print('pune')</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+h
+e
+l
+l
+o
+pune
+pune
+pune
+pune
+pune
+      </samp>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>6. Common String Functions</h2>
+  <ul>
+    <li><code>len()</code> - length of string</li>
+    <li><code>max()</code> - max character</li>
+    <li><code>min()</code> - min character</li>
+    <li><code>sorted()</code> - sorted list of characters</li>
+  </ul>
+
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>c = "kolkata"
+print(len(c))
+print(max(c))
+print(min(c))
+print(sorted(c, reverse=True))</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+7
+t
+a
+['t', 'o', 'l', 'k', 'k', 'a', 'a']
+      </samp>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>7. String Methods</h2>
+
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>c = "kolkata"
+print("it is raining today".capitalize())
+print("it is raining today".title())
+print(c.upper())
+print(c.lower())
+print("KoLkAtA".swapcase())
+print("it is raining".count("x"))
+print("it is raining".find("x"))</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+It is raining today
+It Is Raining Today
+KOLKATA
+kolkata
+kOlKaTa
+0
+-1
+      </samp>
+    </div>
+  </div>
+
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>print("it is raining".endswith("ingef"))
+print("it is raining".startswith("it"))
+print("Hello my name is {} and I am {}".format("Bibek",23))
+print("Hello my name is {1} and I am {0}".format(23,"Bibek"))
+print("Hello my name is {age} and I am {name}".format(name="bibek", age=25))
+print("FLAT20&".isalnum())
+print("FLAT20".isalpha())</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+False
+True
+Hello my name is Bibek and I am 23
+Hello my name is Bibek and I am 23
+Hello my name is bibek and I am 25
+False
+False
+      </samp>
+    </div>
+  </div>
+
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>print("20A".isdigit())
+print("hello_world".isidentifier())</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+False
+True
+      </samp>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>8. String Manipulation Examples</h2>
+
+  <h3>Split and Join</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>print("who is the pm of india".split())
+print("who is the pm of india".split("x"))
+print(" ".join(['who', 'is', 'the', 'pm', 'of', 'india']))
+print("-".join(['who', 'is', 'the', 'pm', 'of', 'india']))</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+['who', 'is', 'the', 'pm', 'of', 'india']
+['who is the pm of india']
+who is the pm of india
+who-is-the-pm-of-india
+      </samp>
+    </div>
+  </div>
+
+  <h3>Replace and Strip</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>print("Hi my name is Nitish".replace("Nitish","Amit"))
+name = "               nitish              "
+print(name.strip())</code></pre>
+    </div>
+    <div class="output-box">
+      <samp>
+Hi my name is Amit
+nitish
+      </samp>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>9. Programming Problems on Strings</h2>
+
+  <h3>Find length of string without <code>len()</code></h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>s = input('Enter the string:')
+counter = 0
+for i in s:
+  counter += 1
+print('length of string is:', counter)</code></pre>
+    </div>
+    <div class="output-box"><samp>
+Enter the string: bibek
+length of string is: 5
+    </samp></div>
+  </div>
+
+  <h3>Extract username from email</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>s = input('Enter the email:')
+pos = s.index('@')
+print(s[0:pos])</code></pre>
+    </div>
+    <div class="output-box"><samp>
+Enter the email: bibek4panda@gmail.com
+bibek4panda
+    </samp></div>
+  </div>
+
+  <h3>Count frequency of a character in string</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>s = input('Enter the string:')
+term = input('What would you like to search for:')
+counter = 0
+for i in s:
+  if i == term:
+    counter += 1
+print('frequency', counter)</code></pre>
+    </div>
+    <div class="output-box"><samp>
+Enter the string: bibek
+What would you like to search for: b
+frequency 2
+    </samp></div>
+  </div>
+
+  <h3>Remove a character from string</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>s = input('Enter the string:')
+term = input('What would you like to remove:')
+result = ''
+for i in s:
+  if i != term:
+    result = result + i
+print(result)</code></pre>
+    </div>
+    <div class="output-box"><samp>
+Enter the string: vicky
+What would you like to remove: y
+vick
+    </samp></div>
+  </div>
+
+  <h3>Check Palindrome</h3>
+  <div class="code-output">
+    <div class="code-box">
+      <pre><code>s = input('Enter the string:')
+flag = True
+for i in range(len(s)//2):
+  if s[i] != s[len(s)-i-1]:
+    flag = False
+    print('The string is not a Palindrome')
+    break
+if flag:
+  print('The string is Palindrome')</code></pre>
+    </div>
+    <div class="output-box"><samp>
+Enter the string: abba
+The string is Palindrome
+    </samp></div>
+  </div>
+  
+</section>
+
+</body>
+</html>

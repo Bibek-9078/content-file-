@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DAY-01: Fundamentals of Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdfdfd;
+      padding: 30px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .pair {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .input, .output {
+      padding: 10px;
+      white-space: pre-wrap;
+      border-radius: 5px;
+      flex: 1;
+    }
+    .input {
+      background-color: #eef;
+      font-weight: bold;
+      margin-right: 20px;
+      border-left: 4px solid #007acc;
+    }
+    .output {
+      background-color: #f8f8f8;
+      font-style: italic;
+      color: #555;
+      border-left: 4px solid #aaa;
+    }
+    .label {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #007acc;
+    }
+    @media screen and (max-width: 768px) {
+      .pair {
+        flex-direction: column;
+      }
+      .input, .output {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">DAY-01: Python Fundamentals</h1>
+  
+  <section>
+  <h2>1. Input and Output</h2>
+  <p>
+    <strong>Input:</strong> Use <code>input()</code> to get user input.<br>
+    <strong>Output:</strong> Use <code>print()</code> to display output.
+  </p>
+
+  <div class="pair">
+    <div class="input">print("Hello world")</div>
+    <div class="output">Hello world</div>
+  </div>
+
+  <div class="pair">
+    <div class="input">print("bibek")</div>
+    <div class="output">bibek</div>
+  </div>
+
+  <!-- (rest of this section continues as before...) -->
+</section>
+
+
+  <section>
+    <h2>1. Input and Output</h2>
+    <div class="pair">
+      <div class="input">print("Hello world")</div>
+      <div class="output">Hello world</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print("bibek")</div>
+      <div class="output">bibek</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print("1st program in python")</div>
+      <div class="output">1st program in python</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print("india", "odisha", "ganjam")</div>
+      <div class="output">india odisha ganjam</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print("india", "odisha", "ganjam", sep="-")</div>
+      <div class="output">india-odisha-ganjam</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print("Hello", end=' ')\nprint("world")</div>
+      <div class="output">Hello world</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Data Types</h2>
+    <div class="pair">
+      <div class="input">print(4)</div>
+      <div class="output">4</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print(1e309)</div>
+      <div class="output">inf</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print(True)</div>
+      <div class="output">True</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print(False)</div>
+      <div class="output">False</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print("4+j")</div>
+      <div class="output">4+j</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. List, Tuple, Set, Dict</h2>
+    <div class="pair">
+      <div class="input">print([9,0,7,7,4,7])</div>
+      <div class="output">[9, 0, 7, 7, 4, 7]</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print((9,0,7,7,4,7))</div>
+      <div class="output">(9, 0, 7, 7, 4, 7)</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print({9,0,7,7,4,7})</div>
+      <div class="output">{0, 9, 4, 7}</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">print({"name":"bibek","age":"20","sex":"male"})</div>
+      <div class="output">{'name': 'bibek', 'age': '20', 'sex': 'male'}</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Variable Assignment</h2>
+    <div class="pair">
+      <div class="input">a = 5\nprint(a)</div>
+      <div class="output">5</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">name = "Bibek"\nprint(name)</div>
+      <div class="output">Bibek</div>
+    </div>
+
+    <div class="pair">
+      <div class="input">a, b, c = 4, 5, 6\nprint(a)\nprint(b)\nprint(c)</div>
+      <div class="output">4<br>5<br>6</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Type Conversion</h2>
+    <div class="pair">
+      <div class="input">first = int(input("Enter number: "))\nsecond = int(input("Enter number: "))\nprint(first + second)</div>
+      <div class="output">65</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Unicode</h2>
+    <div class="pair">
+      <div class="input">unicode = u"\U0001f600\U0001F606\U0001F923"\nprint(unicode)</div>
+      <div class="output">😀😆🤣</div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MS Excel: Alignment, Wrap Text, Indentation, Merge & Unmerge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background: #f6fafd;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #272a31;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 950px;
+  margin: 36px auto;
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 5px 32px rgba(50,60,120,.07);
+  padding: 28px 18px;
+}
+h1 {
+  text-align: center;
+  color: #4c34ad;
+  font-size: 2em;
+  margin-top: 0;
+  letter-spacing: 2px;
+  border-bottom: 4px solid #b7aaff;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.9em;
+}
+.section-card {
+  background: #f6f8fc;
+  border-left: 6px solid #61aaff;
+  border-radius: 9px;
+  padding: 18px 23px 13px 20px;
+  margin-bottom: 22px;
+  margin-top: 17px;
+}
+h2 {
+  color: #0c4073;
+  font-size: 1.21em;
+  border-left: 5px solid #5e9cf3;
+  background: #f1f7fb;
+  padding-left: 13px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 11px;
+  margin-top: 0;
+}
+h3 {
+  color: #e76c03;
+  font-size: 1.08em;
+  margin: 15px 0 7px 0;
+}
+ul, ol { margin-left: 24px; margin-top: 6px;}
+li { margin-bottom: 7px; }
+kbd, .kbd {
+  background: #f4ecfc;
+  border: 1px solid #afa6e5;
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-family: 'Consolas', monospace;
+  font-size: 0.98em;
+  color: #5a409f;
+  margin: 0 2px;
+}
+.highlight {
+  background: #ffeaa7;
+  border-left: 5px solid #fdcb6e;
+  border-radius: 6px;
+  margin: 10px 0 13px 0;
+  padding: 8px 15px;
+  display: inline-block;
+}
+@media (max-width:720px) {
+  .container { padding: 8px; }
+  .section-card { padding: 11px 4px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>MS Excel: Alignment, Wrap Text, Indentation, Merge &amp; Unmerge</h1>
+
+  <div class="section-card">
+    <h2>Alignment of Text in Excel</h2>
+    <p>
+      The alignment of text in Excel is a fundamental aspect of formatting to enhance the visual presentation of data. Here are key points from the provided sources regarding aligning text in Excel:
+    </p>
+    <h3>Vertical Alignment</h3>
+    <ul>
+      <li>To vertically align text in Excel, you can choose from options like Top Align, Middle Align, or Bottom Align. These options allow you to position text at the top, middle, or bottom of a cell vertically.</li>
+    </ul>
+    <ol>
+      <li>
+        <b>Top Alignment:</b>
+        <ul>
+          <li>Top alignment positions text at the top of the cell vertically.</li>
+          <li>To align text to the top in Excel, you can select the cells you want to format and then choose the "Top Align" option from the Alignment tab of the Format Cells dialog box.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Middle Alignment:</b>
+        <ul>
+          <li>Middle alignment centers text vertically in the cell.</li>
+          <li>To vertically center-align text in Excel, select the desired cells and then use the "Middle Align" option from the Alignment tab of the Format Cells dialog box.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Bottom Alignment:</b>
+        <ul>
+          <li>Bottom alignment places text at the bottom of the cell vertically.</li>
+          <li>To align text to the bottom in Excel, select the cells you want to format and then opt for the "Bottom Align" option from the Alignment tab of the Format Cells dialog box.</li>
+        </ul>
+      </li>
+    </ol>
+    <h3>Horizontal Alignment</h3>
+    <ul>
+      <li>For horizontal alignment, Excel provides options like Align Text Left, Center, or Align Text Right. These options help you align text along the left edge, center it, or align it along the right edge of a cell horizontally.</li>
+    </ul>
+    <ol>
+      <li>
+        <b>Left Alignment:</b>
+        <ul>
+          <li>For left alignment, select the cells you want to align, then click on the "Align Left" button in the Alignment group under the Home tab.</li>
+          <li>Left alignment aligns text along the left edge of the cell horizontally.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Center Alignment:</b>
+        <ul>
+          <li>To center-align text in Excel, you can click on the "Center" button in the Alignment group under the Home tab.</li>
+          <li>Center alignment positions text in the middle of the cell both horizontally and vertically for a balanced presentation.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Right Alignment:</b>
+        <ul>
+          <li>To right-align text, choose the "Align Right" option in the Alignment group under the Home tab after selecting the desired cells.</li>
+          <li>Right alignment positions text along the right edge of the cell horizontally.</li>
+        </ul>
+      </li>
+    </ol>
+    <h3>Methods for Alignment</h3>
+    <ul>
+      <li>You can use shortcuts like <kbd>Alt + H + A + T</kbd> for Top alignment, <kbd>Alt + H + A + M</kbd> for Middle alignment, and <kbd>Alt + H + A + B</kbd> for Bottom alignment.</li>
+      <li>The Format Cells dialog box provides additional features for aligning text horizontally and vertically as well as justifying and distributing cell contents.</li>
+    </ul>
+    <h3>Undoing Alignment Changes</h3>
+    <ul>
+      <li>To undo an alignment, change immediately after applying it, you can click "Undo".</li>
+      <li>If you need to make alignment changes later, select the cell or cell range and click on "Clear" &gt; "Clear Formats".</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <h2>Text Direction</h2>
+    <ol>
+      <li>
+        <b>Using Default Options:</b>
+        <ul>
+          <li>Select the cell or cells where you want to change the text direction.</li>
+          <li>Navigate to the Home tab and locate the Alignment tab in the ribbon.</li>
+          <li>Click on the Orientation button to access default options for text rotation.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Fine-Tuning Text Rotation:</b>
+        <ul>
+          <li>For more precise control over text rotation, select the cells and click on the "Alignment Settings" button in the lower-right corner of the Alignment section under the Home tab.</li>
+          <li>In the Format Cells dialog box, under the Alignment tab, you can adjust the rotation by clicking along the semicircle or entering a specific number of degrees for rotation.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Keyboard Shortcut:</b>
+        <ul>
+          <li>If you frequently rotate text, you can use a keyboard shortcut to save time. Press <kbd>Alt + H + F + Q + O</kbd> sequentially to rotate text quickly.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="section-card">
+    <h2>Wrap Text</h2>
+    <p>
+      Wrap text in Excel allows long sentences or text to be shown on multiple lines within a cell without getting cut off or making the column wider. It's handy for displaying all the text in a cell neatly.
+    </p>
+    <h3>Way-01 (Basic way)</h3>
+    <ul>
+      <li>Select the entire dataset (column A in this example)</li>
+      <li>Click the Home Tab</li>
+      <li>In the Alignment group, click on the ‘Wrap text’ button.</li>
+    </ul>
+    <h3>Way-02 (Wrap text with a Keyboard Shortcut)</h3>
+    <ul>
+      <li><kbd>ALT + H + W</kbd> (ALT key followed by the H and W keys)</li>
+    </ul>
+    <h3>Way-03 (Wrap text with the Format Dialog box)</h3>
+    <ul>
+      <li>Select the cells for which you want to apply the wrap text formatting</li>
+      <li>Click the Home tab</li>
+      <li>In the Alignment group, click on the Alignment Setting dialog box launcher (it’s a small ’tilted arrow in a box’ icon at the bottom right of the group).</li>
+      <li>In the ‘Format Cells’ dialog box that opens, select ‘Alignment’ tab (if not selected already)</li>
+      <li>Select the Wrap text option</li>
+      <li>Click OK</li>
+    </ul>
+    <h3>Automatic Wrapping:</h3>
+    <ul>
+      <li>Select the cell(s) containing the text you want to wrap.</li>
+      <li>Go to the Home tab, find the Alignment group, and click on the "Wrap Text" button.</li>
+      <li>This will automatically wrap the text to fit the column width, displaying it on multiple lines within the same cell.</li>
+    </ul>
+    <h3>Manual Line Break:</h3>
+    <ul>
+      <li>If you need to insert a manual line break to wrap text, select the cell where you want the line break.</li>
+      <li>Press <kbd>Alt + Enter</kbd> to create a line break within the cell.</li>
+      <li>This manual method allows you to control where the text wraps within the cell.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <h2>Changing Indentation in Excel</h2>
+    <h3>Using Ribbon Options:</h3>
+    <ul>
+      <li>Select the cells where you want to apply the indentation.</li>
+      <li>Click on the "Home" tab and then in the Alignment group, click on the indent icons to indent left or right.</li>
+      <li>The indentation is applied to the entire cell content, including multiple lines if present, with each line indented by three spaces from the cell margin.</li>
+    </ul>
+    <h3>Keyboard Shortcut:</h3>
+    <ul>
+      <li>ALT + H + 6: Indent to the right.</li>
+      <li>ALT + H + 5: Indent to the left.</li>
+      <li>Select the cells where you want to apply the indent and press these keys in succession.</li>
+    </ul>
+    <h3>Indenting Individual Lines:</h3>
+    <ul>
+      <li>If you need to indent specific lines within a cell, you can manually add space characters before each line where you want to add an indent.</li>
+      <li>This manual method allows you to customize the indentation for individual lines within a cell.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <h2>Text Direction</h2>
+    <ol>
+      <li>
+        <b>Using Default Options:</b>
+        <ul>
+          <li>Select the cell or cells where you want to change the text direction.</li>
+          <li>Navigate to the Home tab and locate the Alignment tab in the ribbon.</li>
+          <li>Click on the Orientation button to access default options for text rotation.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Fine-Tuning Text Rotation:</b>
+        <ul>
+          <li>For more precise control over text rotation, select the cells and click on the "Alignment Settings" button in the lower-right corner of the Alignment section under the Home tab.</li>
+          <li>In the Format Cells dialog box, under the Alignment tab, you can adjust the rotation by clicking along the semicircle or entering a specific number of degrees for rotation.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Keyboard Shortcut:</b>
+        <ul>
+          <li>If you frequently rotate text, you can use a keyboard shortcut to save time. Press Alt + H + F + Q + O sequentially to rotate text quickly.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="section-card">
+    <h2>Merge &amp; Unmerge</h2>
+    <p>
+      Merging cells in spreadsheets is a common formatting technique, particularly for creating headings or labels that span multiple columns or rows. However, it's essential to be cautious when using this feature because it can cause issues with data manipulation tasks like sorting and filtering. Here's how you can merge cells in Microsoft Excel, along with a recommendation for an alternative approach:
+    </p>
+    <h3>Merging Cells:</h3>
+    <ol>
+      <li>
+        <b>Select Cells:</b> Start by selecting the cells you want to merge. These cells must be adjacent to each other.
+      </li>
+      <li>
+        <b>Merge &amp; Center:</b> Navigate to the "Home" tab in Excel and locate the "Merge &amp; Center" button in the "Alignment" group. Click on it. This action will merge the selected cells into one larger cell and center the text within it.
+      </li>
+      <li>
+        <b>Alignment:</b> If you want to align the text differently within the merged cell, you can adjust the horizontal and vertical alignment using the buttons provided in the toolbar.
+      </li>
+    </ol>
+    <h3>Alternative Approach - Center Across Selection:</h3>
+    <ol>
+      <li>Select Cells: Choose the cells you want to format.</li>
+      <li>Open Format Cells Dialogue Box: Press <kbd>Ctrl + 1</kbd> to open the "Format Cells" dialog box.</li>
+      <li>Alignment Tab: In the "Format Cells" dialog box, go to the "Alignment" tab.</li>
+      <li>Center Across Selection: Under the "Horizontal" dropdown menu, select "Center Across Selection."</li>
+      <li>Apply: Click "OK" to apply the formatting changes.</li>
+    </ol>
+    <span class="highlight">
+      <b>Why Avoid Merging Cells:</b><br>
+      While merging cells may seem convenient for formatting purposes, it can lead to challenges with data manipulation tasks. For instance, merged cells can interfere with sorting, filtering, and other operations, making it harder to manage data effectively. Using the "Center Across Selection" approach maintains the structure of your spreadsheet while achieving the desired visual appearance without compromising data integrity.<br>
+      By being mindful of these considerations and utilizing alternative formatting techniques like "Center Across Selection," you can ensure your spreadsheet remains both visually appealing and functional for data analysis tasks.
+    </span>
+    <h3>To unmerge cells in Excel, you can follow these methods:</h3>
+    <ol>
+      <li>
+        <b>Using Excel Ribbon:</b>
+        <ul>
+          <li>Select the cells you want to unmerge.</li>
+          <li>Go to the “Home” tab, click on the “Merge &amp; Center” option under “Alignment,” and then click on the dropdown menu.</li>
+          <li>Choose the “Unmerge Cells” option to unmerge all the merged cells in the selection[1].</li>
+        </ul>
+      </li>
+      <li>
+        <b>Using Keyboard Shortcut:</b>
+        <ul>
+          <li>Select the cells you want to unmerge.</li>
+          <li>Press <kbd>ALT + H + M + U</kbd> to unmerge all the merged cells.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Unmerge Cells and Copy Original Values:</b>
+        <ul>
+          <li>If you need to unmerge cells and fill each unmerged cell with the value from the original cell, you can follow this method.</li>
+        </ul>
+      </li>
+    </ol>
+    <span class="highlight">
+      <b>NOTE:</b>
+      <ul>
+        <li>Unmerging cells in Excel is essential for maintaining data integrity and ensuring that each cell can be sorted and manipulated correctly.</li>
+      </ul>
+      <b>NOTE</b>
+      <ul>
+        <li>Before unmerging the cells, it needs to check whether the merged cells are there in the selected area or not.</li>
+        <li>For this, we must choose the cells in the worksheet.</li>
+        <li>On the “Home” tab in the “Alignment” section, check:</li>
+        <li>If the “Merge &amp; Center” option is not highlighted, there are no merged cells in the selected area.</li>
+      </ul>
+    </span>
+  </div>
+</div>
+</body>
+</html>

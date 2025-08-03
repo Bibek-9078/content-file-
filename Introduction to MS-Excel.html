@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to MS-Excel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f8fafc;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #23272f;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 950px;
+      margin: 32px auto;
+      padding: 30px 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(44,62,80,.06);
+    }
+    h1, h2, h3 {
+      font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+      color: #3f51b5;
+      margin-bottom: 0.4em;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      margin-top: 0;
+      border-bottom: 4px solid #b39ddb;
+      padding-bottom: 0.4em;
+    }
+    h2 {
+      color: #283593;
+      font-size: 1.45em;
+      margin-top: 35px;
+      border-left: 5px solid #42a5f5;
+      padding-left: 13px;
+    }
+    h3 {
+      color: #e67e22;
+      font-size: 1.15em;
+      margin-top: 28px;
+      margin-bottom: 8px;
+    }
+    ul {
+      padding-left: 25px;
+      margin-top: 6px;
+      margin-bottom: 18px;
+    }
+    li {
+      margin-bottom: 7px;
+    }
+    .section-card {
+      background: #f6f9fc;
+      border-left: 5px solid #64b5f6;
+      padding: 17px 24px 12px 24px;
+      border-radius: 9px;
+      margin-bottom: 18px;
+      margin-top: 18px;
+    }
+    .keyterm {
+      background: #fcf8e3;
+      border-left: 5px solid #f9a825;
+      padding: 12px 18px;
+      border-radius: 7px;
+      margin-bottom: 14px;
+    }
+    .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fafbfc;
+      margin: 20px 0 28px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(51,51,100,0.05);
+    }
+    .feature-table th, .feature-table td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #e0e0e0;
+    }
+    .feature-table th {
+      background: #3f51b5;
+      color: #fff;
+    }
+    .feature-table tr:nth-child(even) {
+      background: #f1f5fb;
+    }
+    a {
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .highlight {
+      background: #ffeaa7;
+      padding: 8px 14px;
+      border-left: 5px solid #fdcb6e;
+      border-radius: 6px;
+      margin: 12px 0;
+      display: inline-block;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 10px; }
+      h1 { font-size: 1.5em; }
+      h2 { font-size: 1.1em; }
+      .section-card { padding: 11px 8px; }
+      .keyterm { padding: 7px 9px; }
+      .feature-table th, .feature-table td { padding: 7px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Introduction to MS-Excel</h1>
+
+    <div class="section-card">
+      <h2>Main Components of the Interface</h2>
+      <ol>
+        <li><b>Tabs:</b> Located at the top (Home, Insert, Page Layout, etc.), each tab groups related commands.</li>
+        <li><b>Ribbon:</b> Toolbar displaying all commands/features needed to work in Excel.</li>
+        <li><b>Groups:</b> Commands in each tab are organized into functional groups.</li>
+        <li><b>Column heading/column:</b> Vertical lines, labeled A, B, C, etc.</li>
+        <li><b>Row heading/row:</b> Horizontal lines, numbered 1, 2, 3, etc.</li>
+        <li><b>Range:</b> A selection of two or more cells (e.g., A1:B10).</li>
+        <li><b>Cells:</b> Individual workspace boxes identified by row & column (e.g., A1).</li>
+        <li><b>Quick Access Toolbar:</b> Top-left toolbar for one-click access to common commands.</li>
+        <li><b>Sheet Tabs:</b> Tabs at the bottom to navigate between worksheets.</li>
+        <li><b>Status Bar:</b> Shows info about worksheet state (e.g., sum, mode).</li>
+        <li><b>Zoom In:</b> Slider or "+" icon to enlarge content display.</li>
+        <li><b>Zoom Out:</b> Slider or "-" icon to reduce content display.</li>
+        <li><b>Minimize:</b> Hides Excel to taskbar.</li>
+        <li><b>Maximize:</b> Expands Excel window full screen.</li>
+        <li><b>Exit:</b> Closes Excel or just the workbook.</li>
+        <li><b>Name Box:</b> Shows address or name of the selected cell/range.</li>
+        <li><b>Formula Bar:</b> Shows and edits selected cell content/formula.</li>
+        <li><b>Workbook:</b> The full Excel file containing sheets.</li>
+        <li><b>Cells:</b> Basic unit for data (text, numbers, formulas).</li>
+        <li><b>Quick Access Toolbar:</b> Customizable, above/below ribbon for fast access to your favorite commands.</li>
+        <li><b>Worksheet:</b> Individual spreadsheet page in a workbook.</li>
+      </ol>
+    </div>
+
+    <div class="section-card">
+      <h2>Components and Features of a Worksheet</h2>
+      <ul>
+        <li><b>Rows:</b> Horizontal, numbered, up to 1,048,576 rows in recent Excel.</li>
+        <li><b>Columns:</b> Vertical, labeled A to XFD (up to 16,384 columns).</li>
+        <li><b>Cells:</b> At row &amp; column intersection (e.g., A1), holds data or formulas.</li>
+        <li><b>Cell Reference:</b> Unique by column letter and row number, used in formulas.</li>
+        <li><b>Formula Bar:</b> Enter/edit/view formulas or content of selected cell.</li>
+        <li><b>Worksheets:</b> Multiple per workbook, switch with sheet tabs.</li>
+        <li><b>Navigation:</b> Scrollbars/keys; "Go To" for fast navigation (Ctrl+G).</li>
+        <li><b>Gridlines:</b> Faint lines separate cells, can be shown/hidden or printed.</li>
+        <li><b>Sheet Tabs:</b> Add/delete/rename sheets by right-clicking tab.</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Quick Access Toolbar (QAT)</h2>
+      <ul>
+        <li><b>Location:</b> Top-left by default; can move below Ribbon.</li>
+        <li><b>Customizable:</b> Add/remove any frequently used command.</li>
+        <li><b>One-Click Access:</b> Fast access to commands, no menu hunting.</li>
+        <li><b>Adding Commands:</b> Use dropdown arrow for a list, or via File &gt; Options.</li>
+        <li><b>Removing Commands:</b> Dropdown arrow or via File &gt; Options.</li>
+        <li><b>Keyboard Shortcuts:</b> Each QAT command gets an <span class="highlight">Alt + Number</span> shortcut.</li>
+      </ul>
+      <h3>How to Customize the QAT</h3>
+      <ul>
+        <li>Add Commands: Click dropdown on QAT, select "More Commands" &amp; pick from the list.</li>
+        <li>Move the QAT: Right-click QAT &gt; Show Below the Ribbon.</li>
+        <li>Reset: File &gt; Options &gt; Quick Access Toolbar &gt; Reset.</li>
+      </ul>
+      <div class="highlight">
+        <b>Resource:</b> <a href="https://trumpexcel.com/create-groups-quick-access-toolbar-excel/" target="_blank">Create Groups in QAT (TrumpExcel)</a>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2>Dialog Box vs Task Pane</h2>
+      <table class="feature-table">
+        <tr>
+          <th>Feature</th>
+          <th>Dialog Box</th>
+          <th>Task Pane</th>
+        </tr>
+        <tr>
+          <td>Appearance</td>
+          <td>Separate window pops up</td>
+          <td>Dockable panel on window side</td>
+        </tr>
+        <tr>
+          <td>Interactivity</td>
+          <td>Modal (blocks main window)</td>
+          <td>Non-modal (can keep working)</td>
+        </tr>
+        <tr>
+          <td>Duration</td>
+          <td>Closes after completing task</td>
+          <td>Remains open as needed</td>
+        </tr>
+        <tr>
+          <td>Common Use</td>
+          <td>Detailed, one-time settings/actions</td>
+          <td>Ongoing/contextual tools</td>
+        </tr>
+        <tr>
+          <td>Examples</td>
+          <td>Format Cells, Page Setup, Sort</td>
+          <td>PivotTable Field List, Clipboard</td>
+        </tr>
+      </table>
+      <div class="highlight">
+        For more, see: 
+        <a href="https://trumpexcel.com/learn-excel/#MODULE-4-%E2%80%93-DATA-ANALYSIS" target="_blank">TrumpExcel Data Analysis Guide</a>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2>Entering &amp; Editing Data</h2>
+      <b>Entering Data in Excel:</b>
+      <ul>
+        <li>Open Excel and select a cell (e.g., A1).</li>
+        <li>Type data; press Enter/Tab to move to the next cell.</li>
+        <li>Multiple Data Entry: Use fill handle (drag to fill numbers/dates/series).</li>
+      </ul>
+      <b>Editing Data:</b>
+      <ul>
+        <li>Edit <b>in cell:</b> Double-click or select and type.</li>
+        <li>Edit <b>in Formula Bar:</b> Select cell, edit contents up top.</li>
+        <li><b>Cut/Copy/Paste:</b> Select cells, right-click for options or use keyboard shortcuts.</li>
+        <li><b>Delete Data:</b> Select cell(s), press Delete or right-click &gt; Clear contents.</li>
+      </ul>
+      <b>Editing Columns and Rows:</b>
+      <ul>
+        <li>Resize: Drag borders of column/row headers.</li>
+        <li>Insert/Remove Rows or Columns:
+          <ul>
+            <li><b>Insert:</b> Right-click header, select "Insert".</li>
+            <li><b>Delete:</b> Right-click header, select "Delete".</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Saving the Workbook</h2>
+      <ul>
+        <li><b>Save:</b> File tab &gt; Save or Save As.</li>
+        <li><b>AutoSave:</b> For Office 365/cloud, AutoSave can keep work updated automatically.</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Definitions: Dialog Box &amp; Task Pane</h2>
+      <div class="keyterm">
+        <b>Dialog Box:</b> 
+        A window with options/settings for a feature. Usually modal—must be closed before you continue (e.g., Format Cells, Save As).
+      </div>
+      <div class="keyterm">
+        <b>Task Pane:</b> 
+        Docked side panel for extra tools or info. Stays open while you work (e.g., Clipboard, PivotTable Field List).
+      </div>
+    </div>
+  </div>
+</body>
+</html>

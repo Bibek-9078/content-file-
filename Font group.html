@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MS Excel: Font Group, Borders & Fill Color</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background: #f5f8fc;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #23272f;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 950px;
+  margin: 36px auto;
+  padding: 28px 19px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 28px rgba(60,64,110,0.06);
+}
+h1 {
+  text-align: center;
+  color: #7c3aed;
+  font-size: 2.15em;
+  letter-spacing: 2px;
+  margin-top: 0;
+  margin-bottom: 0.7em;
+  border-bottom: 4px solid #b39ddb;
+  padding-bottom: 0.3em;
+}
+.section-card {
+  background: #f6f8fb;
+  border-left: 6px solid #6cb4f6;
+  border-radius: 9px;
+  padding: 18px 24px 13px 22px;
+  margin-bottom: 22px;
+  margin-top: 16px;
+}
+h2 {
+  color: #084fa1;
+  font-size: 1.23em;
+  margin-top: 0;
+  border-left: 5px solid #42a5f5;
+  padding-left: 13px;
+  background: #f2f7fd;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 11px;
+}
+h3 {
+  color: #e67e22;
+  font-size: 1.09em;
+  margin: 15px 0 7px 0;
+}
+ul, ol { margin-left: 23px; margin-top: 7px;}
+li { margin-bottom: 7px; }
+kbd, .kbd {
+  background: #f0ecf9;
+  border: 1px solid #b5aaf7;
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-family: 'Consolas', monospace;
+  font-size: 0.99em;
+  color: #382ba5;
+  margin: 0 2px;
+}
+.highlight {
+  background: #ffeaa7;
+  border-left: 5px solid #fdcb6e;
+  border-radius: 5px;
+  margin: 9px 0 12px 0;
+  padding: 8px 15px;
+  display: inline-block;
+}
+.table {
+  width: 98%;
+  background: #fcfcfc;
+  border-collapse: collapse;
+  border-radius: 7px;
+  overflow: hidden;
+  margin: 13px 0 21px 0;
+  box-shadow: 0 3px 9px rgba(70,70,100,0.04);
+}
+.table th, .table td {
+  padding: 9px 10px;
+  border: 1px solid #dadce0;
+  text-align: left;
+}
+.table th { background: #6cb4f6; color: #fff; }
+.table tr:nth-child(even) { background: #f3f8fe; }
+@media (max-width:720px) {
+  .container { padding: 8px; }
+  .section-card { padding: 11px 5px; }
+  .table td, .table th { padding: 7px 4px; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Excel Font Group</h1>
+
+    <div class="section-card">
+      <h2>Font Type &amp; Size</h2>
+      <b>To change the font type and size in Excel, you can follow these steps:</b>
+      <h3>Changing Font Type:</h3>
+      <ol>
+        <li>Select the cell or range of cells whose font you want to modify.</li>
+        <li>Go to the <b>Home</b> tab in the Excel ribbon.</li>
+        <li>In the <b>Font</b> group, you'll see a drop-down menu labeled "Font." Click on this drop-down menu.</li>
+        <li>From the drop-down menu, select the desired font type.</li>
+        <li><i>Alternatively</i>, you can directly type the font name in the font box and press Enter.</li>
+      </ol>
+      <h3>Changing Font Size:</h3>
+      <ol>
+        <li>Select the cell or range of cells whose font size you want to modify.</li>
+        <li>Go to the <b>Home</b> tab in the Excel ribbon.</li>
+        <li>In the <b>Font</b> group, you'll see a drop-down menu labeled "Font Size." Click on this drop-down menu.</li>
+        <li>From the drop-down menu, select the desired font size.</li>
+        <li><i>Alternatively</i>, you can directly type the font size in the font size box and press Enter.</li>
+      </ol>
+      <span class="highlight">
+        <b>Keyboard Shortcuts:</b><br>
+        To change font type: Select the cell or range and use <kbd>Ctrl + Shift + F</kbd> to open the font dialog box.<br>
+        To change font size: Select the cell or range and use <kbd>Ctrl + Shift + P</kbd> to open the font size dialog box.
+      </span>
+    </div>
+
+    <div class="section-card">
+      <h2>Bold, Italic &amp; Underline</h2>
+      <b>To apply bold, italic, and underlined formatting in Excel:</b>
+      <ol>
+        <li>
+          <b>Bold:</b> Select cells &mdash; press <kbd>Ctrl + B</kbd> or <kbd>Ctrl + 2</kbd> on your keyboard, or click the "B" icon in the toolbar.
+        </li>
+        <li>
+          <b>Italic:</b> Select cells &mdash; press <kbd>Ctrl + I</kbd> or <kbd>Ctrl + 3</kbd>, or click the "I" icon in the toolbar.
+        </li>
+        <li>
+          <b>Underline:</b> Select cells &mdash; press <kbd>Ctrl + U</kbd> or <kbd>Ctrl + 4</kbd>, or click the "U" icon in the toolbar.
+        </li>
+      </ol>
+      <h3>Increase / Decrease Font Size</h3>
+      <ul>
+        <li>Increase Font Size: <kbd>Ctrl + Shift + &gt;</kbd></li>
+        <li>Decrease Font Size: <kbd>Ctrl + Shift + &lt;</kbd></li>
+      </ul>
+      <ol>
+        <li>
+          Select the cell or range of cells whose font size you want to modify.
+        </li>
+        <li>
+          Press <kbd>Ctrl + Shift + &gt;</kbd> to increase or <kbd>Ctrl + Shift + &lt;</kbd> to decrease the font size.
+        </li>
+      </ol>
+      <b>Alternatively, you can use the ribbon:</b>
+      <ul>
+        <li>
+          <b>Increase Font Size:</b>
+          <ul>
+            <li>Select cells</li>
+            <li>Go to the <b>Home</b> tab</li>
+            <li>In the <b>Font</b> group, click the increase font size button (upward "A" arrow)</li>
+          </ul>
+        </li>
+        <li>
+          <b>Decrease Font Size:</b>
+          <ul>
+            <li>Select cells</li>
+            <li>Go to the <b>Home</b> tab</li>
+            <li>In the <b>Font</b> group, click the decrease font size button (downward "A" arrow)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Borders</h2>
+      <p>
+        Borders in MS Excel are used to enhance the appearance of cells by adding lines around them. Borders can help organize data, separate different sections, highlight important information, or make a table easier to read and understand.
+      </p>
+      <h3>Types of Borders:</h3>
+      <ul>
+        <li>Bottom Border: Adds a line to the bottom of the selected cell(s).</li>
+        <li>Top Border: Adds a line to the top of the selected cell(s).</li>
+        <li>Left Border: Adds a line to the left side of the selected cell(s).</li>
+        <li>Right Border: Adds a line to the right side of the selected cell(s).</li>
+        <li>All Borders: Adds lines to all four sides of the selected cell(s), creating a box around the data.</li>
+        <li>Outside Borders: Adds a border around the outer edges of the selected cell(s) but not inside the range.</li>
+        <li>Thick Outside Border: Adds a thicker border around the outer edges of the selected cell(s).</li>
+        <li>No Border: Removes any existing borders from the selected cell(s).</li>
+      </ul>
+      <ul>
+        <li><b>Border Styles and Colors:</b> Excel provides options to customize border styles and colors (solid, dashed, dotted, double; different thicknesses; variety of colors).</li>
+        <li><b>Using the Format Cells Dialog Box:</b> Select cells &mdash; right-click and choose Format Cells or press <kbd>Ctrl + 1</kbd>. Go to the Border tab to customize style, color, and placement (top, bottom, left, right, inside, outside).</li>
+        <li><b>Drawing Borders:</b> Use the Draw Border tool for custom borders on your worksheet.</li>
+        <li><b>Gridlines vs. Borders:</b> Gridlines are faint and for viewing only (not printed); borders print and are visible in shared files.</li>
+        <li><b>Removing Borders:</b> Select cells, go to the border drop-down in the Font group, choose "No Border".</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>Fill Color</h2>
+      <h3>Regular Way to Fill Color in Cells</h3>
+      <ol>
+        <li>Select the cell or range of cells in which you want to fill the color.</li>
+        <li>Click the Home tab in the Excel ribbon.</li>
+        <li>In the Font group, click on the Fill Color icon (looks like a paint bucket, near the text color icon).</li>
+        <li>Click on your chosen color in the palette. If not available, click <b>More Colors</b> for more options (including hex/RGB).</li>
+        <li>Once you've chosen your desired color, click Ok to apply.</li>
+      </ol>
+      <h3>Shortcut</h3>
+      <p>
+        The keyboard shortcut <kbd>Alt + H + H</kbd> in Excel opens the Fill Color panel for selected cells:
+      </p>
+      <ol>
+        <li>Select the cell or range of cells.</li>
+        <li>Press <kbd>Alt</kbd>, then <kbd>H</kbd>, then <kbd>H</kbd> again.</li>
+        <li>The Fill Color panel opens—use arrow keys to choose a color, <kbd>Enter</kbd> to apply.</li>
+      </ol>
+      <div class="highlight">
+        <b>Pros of this shortcut:</b>
+        <ul>
+          <li>Faster than using the mouse (once practiced).</li>
+          <li>Allows you to not switch from keyboard to mouse.</li>
+        </ul>
+        <b>Cons of this shortcut:</b>
+        <ul>
+          <li>Doesn’t allow typing a color; navigation is by arrow keys.</li>
+          <li>Slower than expected if unfamiliar.</li>
+          <li>Hard to remember.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
